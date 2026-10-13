@@ -1,0 +1,9 @@
+# 依赖安装：pip install -r requirements.txt
+# 装完还需要下载浏览器内核（只需一次）：
+#     python -m playwright install chromium
+
+playwright>=1.40.0
+requests>=2.31.0
+
+# 终端阅读器的渲染（可选，不装则退化为纯文本输出）
+rich>=13.0.0

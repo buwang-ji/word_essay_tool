@@ -1,0 +1,25 @@
+# 真实密钥，绝不要提交
+.env
+
+# 生成的短文与备份（属于个人学习数据）
+短文/
+短文_备份/
+
+# 浏览器登录态（含账号信息，体积很大）
+*_browser_data/
+*_data/
+
+# 运行缓存与状态
+.essay_index.json
+.read_state.json
+__pycache__/
+*.py[cod]
+
+# 侦查/采集产物（可能包含页面源码和截图）
+probe_out/
+
+# 编辑器与系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
