@@ -525,7 +525,7 @@ def get_today_words(headless: bool = None, tab: str = None) -> list:
     if not ok:
         log(f"取词结果自检未通过：{reason}")
         log("为避免把错误数据发给 AI，本次停在取词阶段，不生成短文。")
-        log("请运行 python shanbay_probe.py 重新生成一份页面报告，交给开发者更新选择器。")
+        log("请运行 python tools/shanbay_probe.py 重新生成一份页面报告，交给开发者更新选择器。")
         return []
 
     log(f"自检通过：{len(words)} 个单词看起来正常。")
@@ -811,7 +811,7 @@ def main() -> int:
         log(f"没有从「{tab_label}」取到单词，本次不生成短文。")
         log("排查建议：1) 确认今天该词表有任务；")
         log("          2) 用 --show-browser 观察页面是否正常登录；")
-        log("          3) 页面改版的话，重新跑 shanbay_probe.py 生成新报告。")
+        log("          3) 页面改版的话，重新跑 tools/shanbay_probe.py 生成新报告。")
         return 1
 
     log(f"获取到 {len(words)} 个单词：{', '.join(words)}")

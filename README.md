@@ -375,19 +375,34 @@ Windows 控制台默认 GBK 代码页。脚本内部已统一切 UTF-8；若在�
 
 ## 文件说明
 
+### 日常使用（放在根目录）
+
 | 文件 | 作用 |
 |---|---|
 | `shanbay_daily_essay.py` | **主脚本**：取词 → 生成 → 保存 → 打开 |
 | `read_essay.py` | 终端阅读器：按日期浏览、搜索、进度管理 |
 | `wordlist_to_essay.py` | 从任意文本词表生成短文（不依赖网站） |
+| `common_utils.py` | 公共工具：.env 读取、配置解析、VS Code 定位 |
 | `启动-生成短文.bat` | Windows 双击启动生成（可选词表） |
 | `read_essay.bat` | Windows 双击启动阅读器 |
-| `shanbay_probe.py` | 网页改版时用它导出页面结构，便于修复选择器 |
-| `shanbay_pager_check.py` | 检测词表翻页机制（分页 / 滚动加载） |
-| `shanbay_collect_words.py` | 只取词、不生成短文，输出词表清单 |
-| `shanbay_verify_collect.py` | 对照验证取词准确性（两遍采集 + 逐页截图） |
-| `.env.example` | 配置模板，复制为 `.env` 使用 |
 | `requirements.txt` | 依赖清单 |
+| `.env.example` | 配置模板，复制为 `.env` 使用 |
+
+### 排查工具（放在 `tools/`，日常不需要）
+
+| 文件 | 什么时候用 |
+|---|---|
+| `tools/shanbay_probe.py` | 取词失效时，导出页面结构以便修复选择器 |
+| `tools/shanbay_pager_check.py` | 检测词表翻页机制（分页 / 滚动加载） |
+| `tools/shanbay_collect_words.py` | 只取词、不生成短文，输出词表清单 |
+| `tools/shanbay_verify_collect.py` | 对照验证取词准确性（两遍采集 + 逐页截图） |
+| `tools/启动-生成短文.ps1` | PowerShell 版启动器（`启动-生成短文.bat` 的备选） |
+
+**运行排查工具时要加目录前缀**：
+
+```bash
+python tools/shanbay_probe.py
+```
 
 **运行后自动产生的目录**（均已被 `.gitignore` 排除）：
 
@@ -396,9 +411,9 @@ Windows 控制台默认 GBK 代码页。脚本内部已统一切 UTF-8；若在�
 | `短文/` | 生成的短文（`YYYY-MM-DD_单词语境练习_N.md`） |
 | `短文_备份/` | 生成前的自动备份（保留最近 14 份） |
 | `shanbay_browser_data/` | 浏览器登录态（含账号信息，**请勿提交**） |
+| `probe_out/` | 排查工具的输出（页面结构、截图） |
 | `.read_state.json` | 已读标记与阅读进度 |
 | `.essay_index.json` | 短文索引缓存 |
-| `probe_out/` | 诊断输出（页面结构、截图） |
 
 ---
 
